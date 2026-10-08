@@ -1,0 +1,26 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "services": {
+    "capitalecho": {
+      "root": "apps/capitalecho",
+      "framework": "nextjs"
+    },
+    "dsm-invest": {
+      "root": "apps/dsm-invest",
+      "framework": "nextjs"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "capital-echo.dsm-investments.org" }],
+      "destination": { "service": "capitalecho" }
+    },
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "dsm-investments.org" }],
+      "destination": { "service": "dsm-invest" }
+    },
+    { "source": "/(.*)", "destination": { "service": "dsm-invest" } }
+  ]
+}
