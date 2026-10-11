@@ -1,11 +1,20 @@
 import type { ReactNode } from "react";
-import { ArrowRight, Facebook, Instagram, Linkedin } from "lucide-react";
+import {
+  ArrowRight,
+  BarChart3,
+  Facebook,
+  FileText,
+  Instagram,
+  Lightbulb,
+  Linkedin,
+} from "lucide-react";
 
 import { Button } from "@dsm/ui/components/ui/button";
-import { echoIntelligenceAsset, homeScreenAsset, phonesAsset } from "@/assets/static";
+import { aboutScene, echoIntelligenceScene, heroScene } from "@/assets/static";
 import { Auditors, InformationToAction } from "@/components/audience-ecosystem";
 import { ContactCapitalEcho, FinalCallToAction, Newsletter } from "@/components/closing-sections";
 import { ScrollExperience } from "@/components/scroll-experience";
+import { Eyebrow } from "@/components/section-scenery";
 import { Header } from "@/components/site-header";
 
 const sections = [
@@ -127,19 +136,22 @@ function WhatIsCapitalEcho() {
       aria-labelledby="what-is-capitalecho-heading"
       className="scroll-mt-20 overflow-hidden border-y border-border/70 bg-paper"
     >
-      <div className="mx-auto grid w-full max-w-[90rem] items-center gap-14 px-6 py-20 sm:px-10 sm:py-24 md:grid-cols-[0.9fr_1.1fr] md:gap-10 lg:gap-20 lg:px-16 lg:py-28">
+      <div className="mx-auto grid w-full max-w-[90rem] items-center gap-14 px-6 py-20 sm:px-10 sm:py-24 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16 lg:px-16 lg:py-28">
         <div className="max-w-2xl">
-          <p data-reveal className="text-xs font-semibold uppercase text-capitalecho">
-            What is CapitalEcho?
-          </p>
+          <div data-reveal>
+            <Eyebrow>What is CapitalEcho ?</Eyebrow>
+          </div>
           <h2
             id="what-is-capitalecho-heading"
             data-reveal
-            className="mt-5 max-w-xl font-editorial text-4xl font-medium leading-[1.08] [--ce-delay:80ms] sm:text-5xl lg:text-6xl"
+            className="mt-5 max-w-xl font-editorial text-4xl font-semibold leading-[1.02] [--ce-delay:80ms] sm:text-5xl lg:text-6xl"
           >
-            One Platform. One View of Africa.
+            One Platform.
+            <br />
+            One View of
+            <br />
+            <span className="text-capitalecho">Africa.</span>
           </h2>
-          <div className="mt-8 h-px w-16 bg-capitalecho" aria-hidden="true" />
           <div
             data-reveal
             className="mt-8 max-w-xl space-y-6 text-base leading-8 text-muted-foreground [--ce-delay:160ms] lg:text-lg lg:leading-9"
@@ -159,17 +171,18 @@ function WhatIsCapitalEcho() {
         <figure
           data-reveal="visual"
           data-parallax="8"
-          className="mx-auto w-full max-w-[36rem] [--ce-delay:100ms] md:justify-self-end"
+          className="relative mx-auto w-full max-w-[36rem] [--ce-delay:100ms] lg:max-w-none"
         >
           <img
-            src={homeScreenAsset}
-            alt="CapitalEcho home screen showing its editorial universe and latest company stories"
-            width={848}
-            height={1264}
-            className="mx-auto h-auto w-full object-contain drop-shadow-[0_24px_24px_color-mix(in_oklab,var(--foreground)_14%,transparent)]"
+            src={aboutScene}
+            alt="CapitalEcho home screen on a phone, with a dotted map of Africa and red arcs behind it"
+            width={549}
+            height={760}
+            className="relative z-10 mx-auto h-auto w-full object-contain"
           />
-          <figcaption className="mt-5 text-center font-editorial text-lg text-foreground/70">
-            From information to understanding.
+          <figcaption className="relative z-10 mt-6 flex items-center justify-center gap-3 text-center font-editorial text-lg text-foreground/80 sm:text-xl">
+            <span aria-hidden="true" className="h-[3px] w-8 shrink-0 bg-capitalecho" />
+            From information to <span className="text-capitalecho">understanding.</span>
           </figcaption>
         </figure>
       </div>
@@ -177,46 +190,39 @@ function WhatIsCapitalEcho() {
   );
 }
 
+const echoFeatures = [
+  { icon: FileText, label: "Ask about any article", bubble: "bg-red-50 text-capitalecho" },
+  { icon: Lightbulb, label: "Get clear explanations", bubble: "bg-rose-50 text-capitalecho" },
+  { icon: BarChart3, label: "Go deeper into the insights", bubble: "bg-sky-50 text-sky-600" },
+] as const;
+
 function EchoIntelligence() {
   return (
     <section
       id="echo-intelligence"
       aria-labelledby="echo-intelligence-heading"
-      className="scroll-mt-20 overflow-hidden border-b border-border/70 bg-paper"
+      className="scroll-mt-20 overflow-hidden border-b border-border/70 bg-white"
     >
-      <div className="mx-auto grid w-full max-w-[90rem] items-center gap-14 px-6 py-20 sm:px-10 sm:py-24 md:grid-cols-[1.1fr_0.9fr] md:gap-10 lg:gap-20 lg:px-16 lg:py-28">
-        <div
-          data-reveal="visual"
-          data-parallax="8"
-          className="mx-auto w-full max-w-[36rem] md:justify-self-start"
-        >
-          <img
-            src={echoIntelligenceAsset}
-            alt="Echo Intelligence continuing an article with a contextual reader question and response"
-            width={848}
-            height={1264}
-            className="mx-auto h-auto w-full object-contain drop-shadow-[0_24px_24px_color-mix(in_oklab,var(--foreground)_14%,transparent)]"
-          />
-        </div>
-
-        <div className="max-w-2xl md:justify-self-end">
-          <p data-reveal className="text-xs font-semibold uppercase text-capitalecho">
-            Echo Intelligence
-          </p>
+      <div className="mx-auto grid w-full max-w-[90rem] items-center gap-14 px-6 py-20 sm:px-10 sm:py-24 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-8 lg:px-16 lg:py-28">
+        <div className="max-w-2xl">
+          <div data-reveal>
+            <Eyebrow>Echo Intelligence</Eyebrow>
+          </div>
           <h2
             id="echo-intelligence-heading"
             data-reveal
-            className="mt-5 max-w-xl font-editorial text-4xl font-medium leading-[1.08] [--ce-delay:80ms] sm:text-5xl lg:text-6xl"
+            className="mt-5 max-w-xl font-editorial text-4xl font-semibold leading-[1.02] [--ce-delay:80ms] sm:text-5xl lg:text-6xl"
           >
-            Don&apos;t Just Read. Ask.
+            Don&apos;t Just
+            <br />
+            Read. <span className="text-capitalecho">Ask.</span>
           </h2>
           <p
             data-reveal
-            className="mt-6 font-editorial text-2xl text-foreground/80 [--ce-delay:140ms] sm:text-3xl"
+            className="mt-6 text-2xl text-foreground/70 [--ce-delay:140ms] sm:text-3xl"
           >
             Read. Ask. Understand.
           </p>
-          <div className="mt-8 h-px w-16 bg-capitalecho" aria-hidden="true" />
           <div
             data-reveal
             className="mt-8 max-w-xl space-y-6 text-base leading-8 text-muted-foreground [--ce-delay:200ms] lg:text-lg lg:leading-9"
@@ -228,6 +234,33 @@ function EchoIntelligence() {
               publication.
             </p>
           </div>
+          <ul
+            data-reveal
+            className="mt-10 grid max-w-xl grid-cols-3 gap-3 [--ce-delay:260ms] sm:gap-5"
+          >
+            {echoFeatures.map((feature) => (
+              <li key={feature.label} className="flex flex-col items-start gap-3">
+                <span
+                  className={`flex size-12 items-center justify-center rounded-full sm:size-14 ${feature.bubble}`}
+                >
+                  <feature.icon className="size-5" aria-hidden="true" />
+                </span>
+                <span className="text-xs leading-snug text-foreground/80 sm:text-sm">
+                  {feature.label}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div data-reveal="visual" data-parallax="8" className="relative [--ce-delay:100ms]">
+          <img
+            src={echoIntelligenceScene}
+            alt="Echo Intelligence answering a question beside an infrastructure article, with suggestion cards and a dotted map of Africa"
+            width={588}
+            height={772}
+            className="mx-auto h-auto w-full object-contain"
+          />
         </div>
       </div>
     </section>
@@ -241,30 +274,32 @@ function Hero() {
       aria-labelledby="hero-headline"
       className="relative isolate flex min-h-[88vh] scroll-mt-20 items-center overflow-hidden bg-background text-foreground lg:min-h-[92vh]"
     >
-      {/* subtle paper texture accent */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute bottom-[-12%] left-[38%] -z-10 h-[38vh] w-[38vh] rounded-full opacity-[0.07] blur-3xl"
-        style={{
-          background: "radial-gradient(circle, var(--capitalecho) 0%, transparent 70%)",
-        }}
-      />
-
-      <div className="mx-auto grid w-full max-w-[90rem] items-center gap-14 px-6 py-20 sm:px-10 lg:grid-cols-[42fr_58fr] lg:gap-8 lg:px-16 lg:py-16">
+      <div className="mx-auto grid w-full max-w-[90rem] items-center gap-14 px-6 py-16 sm:px-10 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:gap-8 lg:px-16 lg:py-12">
         <div className="max-w-2xl">
+          <span
+            aria-hidden="true"
+            data-hero-step
+            className="mb-6 block h-[3px] w-10 bg-capitalecho"
+          />
           <h1
             id="hero-headline"
             data-hero-step
-            className="font-editorial text-4xl font-medium leading-[1.08] tracking-tight [--ce-hero-delay:80ms] sm:text-5xl lg:text-[3.6rem]"
+            className="font-editorial text-[2.6rem] font-semibold leading-[1.02] tracking-tight [--ce-hero-delay:80ms] sm:text-5xl lg:text-[2.75rem] xl:text-[3.15rem]"
           >
-            Africa&apos;s Business &amp; Financial Intelligence Platform
+            <span className="block">Africa&apos;s Business &amp;</span>
+            <span className="block">Financial Intelligence</span>
+            <span className="block text-capitalecho">Platform</span>
           </h1>
 
           <p
             data-hero-step
-            className="mt-7 font-editorial text-xl leading-snug text-foreground/80 [--ce-hero-delay:150ms] sm:text-2xl"
+            className="mt-7 text-lg leading-snug text-foreground/70 [--ce-hero-delay:150ms] sm:text-2xl"
           >
-            Understand Africa. Follow the Markets. Discover What Matters.
+            Understand Africa.
+            <br />
+            Follow the Markets.
+            <br />
+            Discover What Matters.
           </p>
 
           <p
@@ -280,13 +315,14 @@ function Hero() {
               asChild
               variant="capitalecho"
               size="lg"
-              className="h-13 rounded-md px-8 text-base font-medium transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-lg"
+              className="h-12 rounded-xl px-7 text-base font-medium transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-lg"
             >
               <a href="#start">
                 Start Your Journey <ArrowRight />
               </a>
             </Button>
-            <p className="mt-4 text-xs uppercase tracking-wide text-muted-foreground/70">
+            <p className="mt-5 flex items-center gap-3 text-xs text-muted-foreground">
+              <span aria-hidden="true" className="h-px w-10 bg-foreground/30" />
               Part of the DSM Invest ecosystem
             </p>
           </div>
@@ -295,14 +331,14 @@ function Hero() {
         <div
           data-hero-step
           data-parallax="10"
-          className="relative flex justify-center [--ce-hero-delay:190ms] lg:justify-end"
+          className="relative mx-auto w-full max-w-[40rem] [--ce-hero-delay:190ms] lg:max-w-none"
         >
           <img
-            src={phonesAsset.url}
-            alt="The CapitalEcho application shown on premium smartphones"
-            width={1369}
-            height={917}
-            className="w-full max-w-[34rem] object-contain drop-shadow-2xl sm:max-w-[38rem] lg:max-w-none lg:w-[112%] lg:translate-x-[6%]"
+            src={heroScene}
+            alt="Three smartphones on a podium showing DSM Invest, the business units, and CapitalEcho, with a dotted globe behind them"
+            width={672}
+            height={737}
+            className="relative z-10 h-auto w-full object-contain"
           />
         </div>
       </div>

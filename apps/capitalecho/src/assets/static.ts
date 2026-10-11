@@ -2,8 +2,12 @@
 // the original Lovable `.asset.json` manifests / src assets). The object shape
 // (`{ url }`) is preserved for manifest-backed assets so call sites are unchanged.
 
+export const aboutScene = "/assets/about-scene.png";
 export const echoIntelligenceAsset = "/assets/echo-intelligence-transparent.png";
+export const echoIntelligenceScene = "/assets/echo-intelligence-scene.png";
 export const ecosystemAsset = "/assets/from-information-to-action-transparent.png";
+export const ecosystemScene = "/assets/ecosystem-scene.png";
+export const heroScene = "/assets/hero-scene.png";
 export const homeScreenAsset = "/assets/capitalecho-home-transparent.png";
 export const logoAsset = { url: "/assets/capitalecho-logo-transparent.png" } as const;
 export const phonesAsset = { url: "/assets/capitalecho-app-phones.png" } as const;

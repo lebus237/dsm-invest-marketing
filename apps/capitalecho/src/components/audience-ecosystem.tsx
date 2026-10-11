@@ -7,7 +7,8 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@dsm/ui/components/ui/carousel";
-import { ecosystemAsset } from "@/assets/static";
+import { ecosystemScene } from "@/assets/static";
+import { Eyebrow } from "@/components/section-scenery";
 import type { CSSProperties } from "react";
 
 const audiences = [
@@ -190,46 +191,133 @@ export function Auditors() {
   );
 }
 
+const ecosystemLockups = [
+  {
+    mark: <CapitalEchoMark />,
+    title: (
+      <>
+        Inform &amp; <span className="text-capitalecho">Understand</span>
+      </>
+    ),
+    titleClass: "text-foreground",
+    description: "In-depth journalism, financial research and strategic analysis on Africa.",
+  },
+  {
+    mark: <FinPathMark />,
+    title: "Manage & Build Financial Discipline",
+    titleClass: "text-emerald-700",
+    description: "Tools and insights to better manage your finances and achieve your goals.",
+  },
+  {
+    mark: <BridgeFundMark />,
+    title: "Invest & Grow",
+    titleClass: "text-dsm-navy",
+    description: "Access investment opportunities across Africa and beyond.",
+  },
+] as const;
+
+function CapitalEchoMark() {
+  return (
+    <span className="inline-flex items-center font-editorial text-[1.65rem] leading-none tracking-tight">
+      Capital<span className="text-capitalecho">Echo</span>
+      <svg viewBox="0 0 24 24" aria-hidden="true" className="ml-1 size-6 text-capitalecho">
+        <circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" strokeWidth="1.4" />
+        <path
+          d="M10 6.5c1.6-.6 3.4-.2 4.2 1.2.7.8 1.6 1.2 2 2.2-.4 1.6-.6 2.8-1.6 3.8-1 1.6-2.4 2.2-3.4 1.6-.8.8-2.2.8-3-.4-.8-1.2-1.4-2.6-.8-4 .4-1.6 1.2-2.6 2.6-4z"
+          fill="currentColor"
+        />
+      </svg>
+    </span>
+  );
+}
+
+function FinPathMark() {
+  return (
+    <span className="inline-flex items-center gap-2 text-emerald-700">
+      <svg viewBox="0 0 24 24" aria-hidden="true" className="size-6">
+        <path d="M3 16h3.2v5H3zm5.6-5h3.2v10H8.6zm5.6-5H17.4v15h-3.2z" fill="currentColor" />
+      </svg>
+      <span className="text-xl font-semibold tracking-tight">FinPath</span>
+    </span>
+  );
+}
+
+function BridgeFundMark() {
+  return (
+    <span className="inline-flex items-center gap-2 text-dsm-navy">
+      <svg viewBox="0 0 24 24" aria-hidden="true" className="size-7">
+        <circle cx="12" cy="12" r="8.25" fill="none" stroke="currentColor" strokeWidth="1.5" />
+        <path
+          d="M7.2 14.2c1.5-2.8 8.1-2.8 9.6 0"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+        />
+        <circle cx="12" cy="9.5" r="1.25" fill="currentColor" />
+      </svg>
+      <span className="text-xl font-semibold tracking-tight">BridgeFund</span>
+    </span>
+  );
+}
+
 export function InformationToAction() {
   return (
     <section
       id="information-to-action"
       aria-labelledby="ecosystem-heading"
-      className="scroll-mt-20 overflow-hidden border-b border-border/70 bg-paper"
+      className="scroll-mt-20 overflow-hidden border-b border-border/70 bg-white"
     >
-      <div className="mx-auto grid w-full max-w-[90rem] items-center gap-14 px-6 py-20 sm:px-10 sm:py-24 md:grid-cols-[0.85fr_1.15fr] md:gap-10 lg:px-16 lg:py-28">
-        <div className="min-w-0">
-          <p data-reveal className="text-xs font-semibold uppercase text-dsm-navy">
-            FROM INFORMATION TO ACTION
-          </p>
-          <h2
-            id="ecosystem-heading"
-            data-reveal
-            className="mt-5 font-editorial text-4xl font-medium leading-[1.08] sm:text-5xl lg:text-6xl [--ce-delay:90ms]"
-          >
-            One Ecosystem. Three Ways to Build Your Financial Future.
-          </h2>
-          <div className="mt-8 h-px w-16 bg-capitalecho" aria-hidden="true" />
-          <p
-            data-reveal
-            className="mt-8 max-w-xl text-base leading-8 text-muted-foreground [--ce-delay:170ms] lg:text-lg lg:leading-9"
-          >
-            From understanding Africa&apos;s economy to managing your finances and accessing
-            investment opportunities, DSM Invest brings the journey together in one ecosystem.
-          </p>
+      <div className="mx-auto w-full max-w-[90rem] px-6 py-20 text-center sm:px-10 sm:py-24 lg:px-16 lg:py-28">
+        <div data-reveal className="flex justify-center">
+          <Eyebrow centered>From information to action</Eyebrow>
         </div>
-        <figure data-reveal="visual" data-parallax="8" className="min-w-0 [--ce-delay:100ms]">
+        <h2
+          id="ecosystem-heading"
+          data-reveal
+          className="mx-auto mt-5 max-w-4xl font-editorial text-4xl font-semibold leading-[1.05] [--ce-delay:90ms] sm:text-5xl lg:text-[3.4rem]"
+        >
+          One Ecosystem. Three Ways to
+          <br />
+          <span className="text-capitalecho">Build Your Financial Future.</span>
+        </h2>
+        <p
+          data-reveal
+          className="mx-auto mt-6 max-w-3xl text-base leading-8 text-muted-foreground [--ce-delay:150ms] lg:text-lg"
+        >
+          From understanding Africa&apos;s economy to managing your finances and accessing
+          investment opportunities, DSM Invest brings the journey together in one ecosystem.
+        </p>
+        <p
+          data-reveal
+          className="mt-8 text-2xl font-semibold tracking-tight [--ce-delay:190ms] sm:text-3xl"
+        >
+          <span className="text-capitalecho">Inform.</span>{" "}
+          <span className="text-emerald-700">Manage.</span>{" "}
+          <span className="text-blue-700">Invest.</span>
+        </p>
+
+        <figure
+          data-reveal="visual"
+          className="mx-auto mt-10 w-full max-w-[64rem] [--ce-delay:120ms]"
+        >
           <img
-            src={ecosystemAsset}
+            src={ecosystemScene}
             alt="CapitalEcho, FinPath and BridgeFund applications shown on three smartphones"
-            width={1080}
-            height={720}
-            className="h-auto w-full object-contain drop-shadow-[0_24px_24px_color-mix(in_oklab,var(--foreground)_12%,transparent)]"
+            width={1024}
+            height={436}
+            className="h-auto w-full object-contain"
           />
-          <figcaption className="mt-5 grid grid-cols-3 gap-3 text-center font-editorial text-sm text-foreground/75 sm:text-base">
-            <span>Inform &amp; Understand</span>
-            <span>Manage &amp; Build</span>
-            <span>Invest &amp; Grow</span>
+          <figcaption className="mt-8 grid gap-10 text-left sm:grid-cols-3 sm:gap-6 sm:text-center">
+            {ecosystemLockups.map((lockup) => (
+              <div key={lockup.description} className="mx-auto max-w-xs">
+                <div className="flex justify-center">{lockup.mark}</div>
+                <p className={`mt-3 text-lg font-semibold leading-tight ${lockup.titleClass}`}>
+                  {lockup.title}
+                </p>
+                <p className="mt-2 text-sm leading-6 text-muted-foreground">{lockup.description}</p>
+              </div>
+            ))}
           </figcaption>
         </figure>
       </div>

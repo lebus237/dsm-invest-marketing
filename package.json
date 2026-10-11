@@ -10,7 +10,13 @@
   ],
   "scripts": {
     "dev": "turbo run dev",
+    "dev:capitalecho": "turbo run dev --filter=@dsm/capitalecho",
+    "dev:dsm-invest": "turbo run dev --filter=@dsm/dsm-invest",
     "build": "turbo run build --concurrency=1",
+    "build:capitalecho": "turbo run build --filter=@dsm/capitalecho",
+    "build:dsm-invest": "turbo run build --filter=@dsm/dsm-invest",
+    "start:capitalecho": "turbo run start --filter=@dsm/capitalecho",
+    "start:dsm-invest": "turbo run start --filter=@dsm/dsm-invest",
     "lint": "turbo run lint",
     "typecheck": "turbo run typecheck",
     "format": "prettier --write .",
