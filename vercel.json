@@ -13,7 +13,7 @@
   "rewrites": [
     {
       "source": "/(.*)",
-      "has": [{ "type": "host", "value": "capital-echo.dsm-investments.org" }],
+      "has": [{ "type": "host", "value": "capitalecho.dsm-investments.org" }],
       "destination": { "service": "capitalecho" }
     },
     {
